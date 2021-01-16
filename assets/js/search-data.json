@@ -1,11 +1,22 @@
 {
   
+    
+        "post0": {
+            "title": "Noisy Planet",
+            "content": "I recently came across this interesting post and I wanted to replicate the whole thing in python within a jupyter notebook. . Let&#39;s start by correctly generating random positions within a disk (the original post missed the right way to do it as explained here). We then plot them in polar coordinates. . import numpy as np npoints = 1000 radius = 10 r = np.sqrt(np.random.rand(npoints)) * radius theta = np.random.rand(npoints) * 2 * np.pi import matplotlib.pyplot as plt fig, ax = plt.subplots(subplot_kw={&quot;projection&quot;: &quot;polar&quot;}, figsize=(8, 8)) ax.plot(theta, r, &quot;o&quot;, alpha=0.5); . Given this set of initial point, we will generate random trajectories using Perlin noise. Despite this kind of noise seems not to be coded within numpy or scipy, there are python packages to do it and we will install and use the following one . !pip install perlin-noise . Let&#39;s write a function to return a bunch of trajectories cutting each of them when the next point is outside the planet. . from perlin_noise import PerlinNoise def generate_noisy_planet(npoints=1000, radius=10, step=0.1, seed=None): np.random.seed(seed) noise = PerlinNoise(octaves=4, seed=seed) trajectories = [] for i in range(npoints): r = np.sqrt(np.random.rand()) * radius theta = np.random.rand() * 2 * np.pi x, y = r * np.cos(theta), r * np.sin(theta) trajectory = [] while np.hypot(x, y) &lt; radius: trajectory += [[x, y]] n = noise([x / 100, y / 100]) fx = np.sin if n &gt; 0.5 else np.cos fy = np.cos if n &gt; 0.5 else np.sin x += fx(n * 2 * np.pi) * step y += fy(n * 2 * np.pi) * step trajectories += [np.array(trajectory)] return trajectories . Finally let&#39;s plot them in cartesian coordinates . trajectories = generate_noisy_planet() fig, ax = plt.subplots(figsize=(8, 8)) ax.axis(&quot;equal&quot;) ax.axis(&quot;off&quot;) cmap = plt.get_cmap(&quot;Greys&quot;, len(trajectories)) for i, trajectory in enumerate(trajectories): plt.plot(trajectory[:, 0], trajectory[:, 1], color=cmap(i)) . And here are some nice examples of noisy planets . seeds = [20, 52, 666] cmaps = [&quot;Reds&quot;, &quot;Greens&quot;, &quot;Blues&quot;] fig, axes = plt.subplots(ncols=3, figsize=(24, 8)) for i, seed in enumerate(seeds): axes[i].axis(&quot;equal&quot;) axes[i].axis(&quot;off&quot;) trajectories = generate_noisy_planet(seed=seed) cmap = plt.get_cmap(cmaps[i], len(trajectories)) for j, trajectory in enumerate(trajectories): axes[i].plot(*trajectory.T, color=cmap(j)) . Just like the original post, we finally create a gif file for the latest evil planet (seed=666) . import os tmp_figs = &quot;/tmp/planets&quot; os.makedirs(tmp_figs, exist_ok=True) plt.figure(figsize=(8, 8)) min_time = 0 max_time = np.max([len(trajectory) for trajectory in trajectories]) for t in range(min_time, max_time): plt.axis(2 * [-radius, +radius]) plt.axis(&quot;off&quot;) for i, trajectory in enumerate(trajectories): tlim = min(t, len(trajectory)) plt.plot(trajectory[:tlim, 0], trajectory[:tlim, 1], color=cmap(i)) plt.savefig(os.path.join(tmp_figs, &quot;planet_{:03d}.png&quot;.format(t))) plt.clf(); . and the process conversion using ImageMagick . import subprocess subprocess.run( [ &quot;convert&quot;, &quot;-background&quot;, &quot;white&quot;, &quot;-alpha&quot;, &quot;remove&quot;, &quot;-layers&quot;, &quot;optimize&quot;, &quot;-delay&quot;, &quot;10&quot;, &quot;-loop&quot;, &quot;0&quot;, tmp_fig + &quot;/*.png&quot;, &quot;./images/animation.gif&quot;, ] ); . .",
+            "url": "https://xgarrido.github.io/blog/jupyter/planet/perlin%20noise/2021/01/15/noisy-planet.html",
+            "relUrl": "/jupyter/planet/perlin%20noise/2021/01/15/noisy-planet.html",
+            "date": " • Jan 15, 2021"
+        }
+        
+    
+  
 
   
   
 
   
-      "page1": {
+      ,"page1": {
           "title": "About Me",
           "content": "This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
           "url": "https://xgarrido.github.io/blog/about/",
