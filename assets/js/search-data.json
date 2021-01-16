@@ -34,10 +34,7 @@
   
 
   
-  
-
-  
-      ,"page10": {
+      ,"page9": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://xgarrido.github.io/blog/robots.txt",
