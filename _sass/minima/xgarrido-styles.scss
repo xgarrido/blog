@@ -1,0 +1,279 @@
+// //Default Overrides For Styles In Minima
+// // If you wish to override any of this CSS, do so in _sass/minima/custom-styles.css
+
+$link-color: rgb(3, 102, 214);
+$toc-link-color: #515151;
+$link-opacity: 0.8;
+
+a:link {
+    color: $link-color !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: rgba($link-color, $link-opacity) !important;
+}
+
+.site-header {
+    border-top:0 !important;
+}
+
+.site-title {
+    font-weight: 600 !important;
+}
+
+.site-title:before {
+    content: "\f4fb";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 130%;
+    margin-right:5px;
+}
+
+.post img {
+        display: block;
+        // border:1px solid #021a40;
+        vertical-align: top;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+img.emoji{
+      display: inline !important;
+      vertical-align: baseline !important;
+}
+
+.post figcaption {
+  text-align: center;
+  font-size: .8rem;
+  font-style: italic;
+  color: light-grey;
+}
+
+// make non-headings slightly lighter
+.post-content {
+    margin-top: 10px !important;
+    h1, h2, h3 {
+        color: #515151;
+    }
+    ul {
+        a:link {
+            color: $toc-link-color !important;
+        }
+        a:hover {
+            color: rgba($toc-link-color, $link-opacity) !important;
+        }
+    }
+}
+
+// .post-link{
+//     font-weight: normal;
+// }
+
+// decrease warning/info boxes padding
+.flash {
+    padding: 10px !important;
+    margin-bottom:1.0rem !important;
+}
+
+// change padding of headings
+h1 {
+    margin-top:1.5rem !important;
+}
+
+h2 {
+    margin-top:1rem !important;
+}
+
+h3, h4 {
+    margin-top:0.5rem !important;
+}
+
+pre {
+    margin-bottom:1.5rem !important;
+}
+
+li {
+  h3, h4 {
+  margin-top:.05rem !important;
+  margin-bottom:.05rem !important;
+  }
+  .post-meta-description {
+    color: rgb(88, 88, 88);
+    font-size: 15px;
+    margin-top:.05rem !important;
+    margin-bottom:.05rem !important;
+  }
+}
+
+.post-header {
+    margin-bottom:0px !important;
+    .pb-5 {
+        padding-bottom:0px !important;
+        .px-2 {
+            padding-right:1px !important;
+            padding-left:1px !important;
+        }
+    }
+}
+
+//  Code Folding
+ details.description[open] summary::after {
+  content: attr(data-open);
+}
+
+details.description:not([open]) summary::after {
+  content: attr(data-close);
+}
+
+// Notebook badges
+.notebook-badge-image {
+  border:0 !important;
+}
+
+// // Adjust font size for footnotes.
+// .footnotes {
+//   font-size: 12px !important;
+//   p, li{
+//     font-size: 12px !important;
+//  }
+// }
+
+// Adjust with of social media icons were getting cut off
+.social-media-list{
+  .svg-icon {
+    width: 25px !important;
+    height: 23px !important;
+  }
+}
+
+// Make Anchor Links Appear Only on Hover
+
+.anchor-link {
+  opacity: 0;
+  padding-left: 0.375em;
+  \-webkit-text-stroke: 1.75px white;
+  \-webkit-transition: opacity 0.2s ease-in-out 0.1s;
+  \-moz-transition: opacity 0.2s ease-in-out 0.1s;
+  \-ms-transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  opacity: 1;
+}
+
+
+// category tags
+.category-tags {
+  margin-top: .25rem !important;
+  margin-bottom: .25rem !important;
+}
+
+// Custom styling for homepage post previews
+.post-meta-title, .post-meta{
+  margin-top: .25em !important;
+  margin-bottom: .25em !important;
+  font-size: 90%;
+}
+
+.page-description {
+  margin-top: .5rem !important;
+  margin-bottom: 0 !important;
+  color: #585858;
+}
+
+// Custom styling for category tags
+.category-tags-icon {
+  font-size: 75% !important;
+  padding-left: 0.375em;
+  opacity: 35%;
+}
+.category-tags-link {
+  color:$link-color !important;
+  font-size: 13px !important;
+}
+
+// Search Page Styles
+.js-search-results {padding-top: 0.2rem;}
+.search-results-list-item {padding-bottom: 1rem;}
+.search-results-list-item .search-result-title {
+  font-size: 16px;
+  color: #d9230f;
+}
+.search-result-rel-url {color: silver;}
+.search-results-list-item a {display: block; color: #777;}
+.search-results-list-item a:hover, .search-results-list-item a:focus {text-decoration: none;}
+.search-results-list-item a:hover .search-result-title {text-decoration: underline;}
+
+.search-result-rel-date {
+  color: rgb(109, 120, 138);
+  font-size: 14px;
+}
+
+.search-result-preview {
+  color: #777;
+  font-size: 16px;
+  margin-top:.02rem !important;
+  margin-bottom:.02rem !important;
+}
+.search-result-highlight {
+  color: #2e0137;
+  font-weight:bold;
+}
+
+table {
+  white-space: normal;
+  max-width: 100%;
+  font-size: 100%;
+  border:none;
+  th{
+    text-align: center! important;
+  }
+}
+
+// customize scrollbars
+::-webkit-scrollbar {
+  width: 14px;
+  height: 18px;
+}
+::-webkit-scrollbar-thumb {
+  height: 6px;
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  -webkit-border-radius: 7px;
+  background-color: #9D9D9D;
+  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+// Wrap text outputs instead of horizontal scroll
+.output_text.output_execute_result {
+  pre{
+    white-space: pre-wrap;
+  }
+}
+
+
+// Handling large charts on mobile devices
+// @media only screen and (max-width: 1200px) {
+//   /* for mobile phone and tablet devices */
+//   .output_wrapper{
+//     overflow: scroll;
+//   }
+// }
+
+// .code_cell {
+//   margin: 1.5rem 0px !important;
+// }
