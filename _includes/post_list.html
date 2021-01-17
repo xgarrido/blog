@@ -6,4 +6,11 @@
 {%- if site.show_description and post.description  -%}
 <p class="post-meta-description">{{ post.description }}</p>
 {%- endif -%}
-<p class="post-meta">{{ post.date | date: date_format }} • {% include reading_time.html -%}</p>
+<p class="post-meta">{{ post.date | date: date_format }}
+  • {% assign words = post.content | strip_html | number_of_words %}
+    {% if words < 360 %}
+      1 min read
+    {% else %}
+      {{ words | divided_by:180 }} min read
+    {% endif %}
+</p>
