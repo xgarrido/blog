@@ -407,7 +407,7 @@ h1:hover .anchor-link, h2:hover .anchor-link, h3:hover .anchor-link, h4:hover .a
 
 .search-result-highlight { color: #2e0137; font-weight: bold; }
 
-table { white-space: normal; max-width: 100%; font-size: 100%; border: none; }
+table { margin-left: auto; margin-right: auto; white-space: normal; max-width: 100%; font-size: 100%; border: none; }
 
 table th { text-align: center !important; }
 
@@ -443,7 +443,7 @@ pre, pre code, p code, li code { color: #2f3337; background-color: #f6f6f6; }
 
 .highlight { background: #f6f6f6 !important; color: #2f3337 !important; }
 
-.highlight pre, .highlight code { background: #f6f6f6; color: #2f3337; }
+.highlight pre, .highlight code { margin-top: 0 !important; background: #f6f6f6; color: #2f3337; }
 
 .highlight .c { color: #656e77; font-style: italic; }
 
