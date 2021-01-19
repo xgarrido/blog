@@ -329,7 +329,7 @@ a:hover { color: rgba(3, 102, 214, 0.8) !important; }
 
 .site-title { font-weight: 600 !important; }
 
-.site-title:before { content: "\f4fb"; font-family: "Font Awesome 5 Free"; font-weight: 900; font-size: 130%; margin-right: 5px; }
+.site-title:before { content: "\f7d8"; font-family: "Font Awesome 5 Free"; font-weight: 900; font-size: 130%; margin-right: 5px; }
 
 .post img { display: block; vertical-align: top; margin-left: auto; margin-right: auto; }
 
